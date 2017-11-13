@@ -12,11 +12,9 @@
 */
 
 Route::get('/', function () {
-    return redirect('/admin/home');
-});
-Route::get('/ss', function () {
     return view('home');
 });
+
 //Auth::routes();
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -41,13 +39,14 @@ Route::group(
         'as' => 'admin.'
     ],
     function () {
-        Route::get('/home', 'HomeController@index');
+        Route::get('/', 'HomeController@index');
+        Route::get('dashboard','Admin\AdminController@index');
         Route::resource('permissions', 'Admin\PermissionsController');
         Route::post('permissions_mass_destroy', ['uses' => 'Admin\PermissionsController@massDestroy', 'as' => 'permissions.mass_destroy']);
-        Route::resource('roles', 'Admin\RolesController');
-        Route::post('roles_mass_destroy', ['uses' => 'Admin\RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
-        Route::resource('categories', 'Admin\CategoriesController');
-        Route::post('categories_mass_destroy', ['uses' => 'Admin\CategoriesController@massDestroy', 'as' => 'categories.mass_destroy']);
+//        Route::resource('roles', 'Admin\RolesController');
+//        Route::post('roles_mass_destroy', ['uses' => 'Admin\RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
+//        Route::resource('categories', 'Admin\CategoriesController');
+//        Route::post('categories_mass_destroy', ['uses' => 'Admin\CategoriesController@massDestroy', 'as' => 'categories.mass_destroy']);
         Route::resource('users', 'Admin\UsersController');
         Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
     });

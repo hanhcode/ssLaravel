@@ -140,7 +140,7 @@
                                             class="img-circle"> </a>
                                 <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
                                     <li class="text-center">
-                                        <h5><a href="{{ url('/admin/home') }}">Hi, {{ Auth::user()->name }}</a></h5>
+                                        <h5><a href="{{ url('/admin/dashboard') }}">Hi, {{ Auth::user()->name }}</a></h5>
                                     </li>
                                     <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a>
