@@ -1,3 +1,4 @@
+@inject('request', 'Illuminate\Http\Request')
 <!-- ========== Left Sidebar Start ========== -->
 <div class="left side-menu">
     <div class="sidebar-inner slimscrollleft">
@@ -14,7 +15,7 @@
                         <li><a href="dashboard_2.html">Dashboard 2</a></li>
                     </ul>
                 </li>
-
+                @can('users_manage')
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> User Interface </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
@@ -36,7 +37,7 @@
                         <li><a href="ui-grid.html">Grid</a></li>
                     </ul>
                 </li>
-
+                @endcan
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Admin UI </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">

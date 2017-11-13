@@ -737,10 +737,10 @@ input:focus {
   height: 16px;
   left: 0;
   margin-left: -20px;
-  padding-left: 3px;
+  padding-left: 2px;
   padding-top: 1px;
   position: absolute;
-  top: 1px;
+  top: 0;
   width: 16px;
 }
 .checkbox input[type="checkbox"] {
@@ -757,8 +757,8 @@ input:focus {
   outline: none;
 }
 .checkbox input[type="checkbox"]:checked + label::after {
-  content: '\f26b';
-  font-family: 'Material-Design-Iconic-Font';
+  content: "\F12C";
+  font-family: 'Material Design Icons';
   font-weight: bold;
 }
 .checkbox input[type="checkbox"]:disabled + label::before {

@@ -130,16 +130,45 @@
                     </li>
 
                     <li class="dropdown navbar-c-items">
-                        <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
-                        <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
-                            <li class="text-center">
-                                <h5>Hi, John</h5>
-                            </li>
-                            <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Logout</a></li>
-                        </ul>
+
+
+                        @if (Route::has('login'))
+                            @auth
+                                <a href="" class="dropdown-toggle waves-effect waves-light profile"
+                                   data-toggle="dropdown" aria-expanded="true"><img
+                                            src="{{asset('images/users/avatar-h.jpg')}}" alt="user-img"
+                                            class="img-circle"> </a>
+                                <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
+                                    <li class="text-center">
+                                        <h5><a href="{{ url('/admin/home') }}">Hi, {{ Auth::user()->name }}</a></h5>
+                                    </li>
+                                    <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
+                                    <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a>
+                                    </li>
+                                    <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
+                                    <li> <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="ti-power-off m-r-5"></i> Logout </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                                @else
+                                    <a href="" class="dropdown-toggle waves-effect waves-light profile"
+                                       data-toggle="dropdown" aria-expanded="true"><img
+                                                src="{{asset('images/users/avatar-1.jpg')}}" alt="user-img"
+                                                class="img-circle"> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
+
+                                        <li><a href="{{ route('login') }}"><i class="ti-lock m-r-5"></i> Login</a></li>
+                                        <li><a href="{{ route('register') }}"><i class="ti-power-off m-r-5"></i> Register</a></li>
+                                    </ul>
+
+
+                                    @endauth
+                                @endif
+
 
                     </li>
                 </ul>
