@@ -156,23 +156,33 @@
                         <i class="mdi mdi-settings"></i>
                     </a>
                 </li>
-
+                @if (Route::has('login'))
+                    @auth
                 <li class="dropdown user-box">
                     <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
-                        <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                        <img src="{{asset('images/users/avatar-h.jpg')}}" alt="user-img" class="img-circle user-img">
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
                         <li>
-                            <h5>Hi, John</h5>
+                            <h5>Hi, {{ Auth::user()->name }}</h5>
                         </li>
                         <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
                         <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
                         <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
-                        <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+
+                        <li><a href="{{ route('auth.change_password') }}"><i class="fa fa-key"></i> Change password</a></li>
+                        <li> <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="ti-power-off m-r-5"></i> Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
                     </ul>
                 </li>
-
+                    @endauth
+                @endif
             </ul> <!-- end navbar-right -->
 
         </div><!-- end container -->

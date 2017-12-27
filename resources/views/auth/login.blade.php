@@ -18,6 +18,7 @@
                                 <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
                             </div>
                             <div class="account-content">
+
                                 <form method="POST" class="form-horizontal" action="{{ route('login') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

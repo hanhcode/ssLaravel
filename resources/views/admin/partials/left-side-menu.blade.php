@@ -7,11 +7,10 @@
         <div id="sidebar-menu">
             <ul>
                 <li class="menu-title">Navigation</li>
-
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right">2</span> <span> Dashboard </span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="homepage.blade.php">Dashboard 1</a></li>
+                        <li><a href="{{ route('admin.') }}">Dashboard 1</a></li>
                         <li><a href="dashboard_2.html">Dashboard 2</a></li>
                     </ul>
                 </li>
@@ -38,6 +37,7 @@
                     </ul>
                 </li>
                 @endcan
+            <!--
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Admin UI </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
@@ -189,7 +189,7 @@
                         <li><a href="real-estate-add.html">Add Property</a></li>
                     </ul>
                 </li>
-
+-->
             </ul>
         </div>
         <!-- Sidebar -->
